@@ -35,6 +35,44 @@ used.
 
 • Genus Script file with .tcl file Extension commands are executed one by one to synthesize the netlist.
 
+### Code:
+```
+module alu_32bit_tb_case;
+reg [31:0]a;
+
+reg [31:0]b;
+
+reg [2:0]f;
+
+wire [31:0]y;
+
+alu_32bit_case test2(.y(y),.a(a),.b(b),.f(f));
+
+initial
+
+begin
+
+a=32'h00000000;
+
+b=32'hFFFFFFFF;
+
+#10 f=3'b000;
+
+#10 f=3'b001;
+
+#10 f=3'b010;
+
+#10 f=3'b100;
+
+end
+
+initial
+
+#50 $finish;
+
+endmodule
+```
+
 #### Synthesis RTL Schematic :
 ![WhatsApp Image 2024-11-20 at 9 45 07 PM (1)](https://github.com/user-attachments/assets/4c897176-cb57-42c6-9613-1d4e04cb0442)
 
